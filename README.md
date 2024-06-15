@@ -4,45 +4,45 @@ This repository contains the RecipeLens project for the final year prject. Follo
 
 ## File Structure
 
-Final-Year-Project
-│
-├── PPT
-│ └── Presentation on RecipeLens.pptx
-│
-├── Documents
-│ ├── A Project Report on RecipeLens.pdf
-│ └── A Project Report on RecipeLens.docx
-│
-├── Source Code
-├── RecipeLens
-├── Info.txt
-│ ├── src
-│ │ ├── main
-│ │ │ ├── migrations
-│ │ │ ├── static
-│ │ │ │ └── main
-│ │ │ │ ├── icons
-│ │ │ │ ├── indian_recipes.json
-│ │ │ │ └── style.css
-│ │ │ ├── templates
-│ │ │ │ └── main
-│ │ │ │ └── home.html
-│ │ │ ├── init.py
-│ │ │ ├── admin.py
-│ │ │ ├── apps.py
-│ │ │ ├── encoder.py
-│ │ │ ├── forms.py
-│ │ │ ├── models.py
-│ │ │ ├── tests.py
-│ │ │ ├── urls.py
-│ │ │ └── views.py
-│ │ ├── RecipeLens
-│ │ ├── db.sqlite3
-│ │ ├── enc_names.txt
-│ │ ├── encoding.txt
-│ │ └── manage.py
-│ ├── venv
-│ └── requirments.txt
+    Final-Year-Project
+    │
+    ├── PPT
+    │   └── Presentation on RecipeLens.pptx
+    │
+    ├── Documents
+    │   ├── A Project Report on Recipelens.pdf
+    │   └── A Project Report on Recipelens.docx
+    │
+    ├── Source Code
+    │   ├── Info.txt
+    │   ├── RecipeLens
+    │   │   ├── src
+    │   │   │   ├── main
+    │   │   │   │   ├── migrations
+    │   │   │   │   ├── static
+    │   │   │   │   │   └── main
+    │   │   │   │   │       ├── icons
+    │   │   │   │   │       ├── indian_recipes.json
+    │   │   │   │   │       └── style.css
+    │   │   │   │   ├── templates
+    │   │   │   │   │   └── main
+    │   │   │   │   │       └── home.html
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   ├── admin.py
+    │   │   │   │   ├── apps.py
+    │   │   │   │   ├── encoder.py
+    │   │   │   │   ├── forms.py
+    │   │   │   │   ├── models.py
+    │   │   │   │   ├── tests.py
+    │   │   │   │   ├── urls.py
+    │   │   │   │   └── views.py
+    │   │   │   ├── RecipeLens
+    │   │   │   ├── db.sqlite3
+    │   │   │   ├── enc_names.txt
+    │   │   │   ├── encoding.txt
+    │   │   │   └── manage.py
+    │   ├── venv
+    │   └── requirments.txt
 
 
 ## Setup Instructions
