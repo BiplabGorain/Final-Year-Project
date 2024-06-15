@@ -1,0 +1,86 @@
+File Structure -
+
+Final-Year-Project
+│
+├── PPT
+│   └── Presentation on RecipeLens.pptx
+│
+├── Documents
+│   ├── A Project Report on Recipelens.pdf
+│   └── A Project Report on Recipelens.docx
+│
+├── Source Code
+    ├── Info.txt
+    ├── RecipeLens
+    │   ├── src
+    │   │   ├── main
+    │   │   │   ├── migrations
+    │   │   │   ├── static
+    │   │   │   │   └── main
+    │   │   │   │       ├── icons
+    │   │   │   │       ├── indian_recipes.json
+    │   │   │   │       └── style.css
+    │   │   │   ├── templates
+    │   │   │   │   └── main
+    │   │   │   │       └── home.html
+    │   │   │   ├── __init__.py
+    │   │   │   ├── admin.py
+    │   │   │   ├── apps.py
+    │   │   │   ├── encoder.py
+    │   │   │   ├── forms.py
+    │   │   │   ├── models.py
+    │   │   │   ├── tests.py
+    │   │   │   ├── urls.py
+    │   │   │   └── views.py
+    │   │   ├── RecipeLens
+    │   │   ├── db.sqlite3
+    │   │   ├── enc_names.txt
+    │   │   ├── encoding.txt
+    │   │   └── manage.py
+    │   ├── venv
+    │   └── requirments.txt
+
+
+Instructions for Setting Up and Running the Project
+
+1. Create a Virtual Environment
+To create a virtual environment named venv in the same location as it is in the file structure:
+▫️Open a terminal (Command Prompt, PowerShell, or terminal application on your operating system).
+▫️Navigate to the Source Code/RecipeLens directory using the cd command. For example:
+cd path/to/Final-Year-Project/Source Code/RecipeLens
+(You need to replace path/to with the real path to this directory)
+▫️Create a virtual environment named venv using the following command:
+python -m venv venv
+
+
+2. Activate the Virtual Environment
+To activate the virtual environment:
+▫️On Windows:
+venv\Scripts\activate
+▫️On macOS/Linux:
+source venv/bin/activate
+When the virtual environment is activated, you will see (venv) at the beginning of your terminal prompt.
+
+
+3. Install Required Libraries
+To install all the libraries mentioned in the requirments.txt file:
+▫️Ensure you are still in the Source Code/RecipeLens directory and the virtual environment is activated.
+▫️Run the following command:
+pip install -r requirments.txt
+This command will install all the dependencies listed in the requirments.txt file.
+
+
+4. Run the Django Development Server
+To start the Django development server:
+▫️Navigate to the src directory:
+cd src
+▫️Run the Django development server using the manage.py file:
+python manage.py runserver
+
+
+5. Access the Localhost Address
+After successfully running the command, you will see output similar to the following in your terminal:
+Starting development server at http://127.0.0.1:8000/
+Open a web browser and go to the address http://127.0.0.1:8000/ to view the running Django application.
+
+That's it! You should now be able to see and interact with the RecipeLens project.

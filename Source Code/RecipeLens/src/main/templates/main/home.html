@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" href="static/main/icons/scan.png">
+    <title>Recipe Lens</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+</head>
+<body>
+    <div class="top-section">
+        <div style="display: flex;align-items:center; gap:1em; ">
+            <h1>Recipe Lens</h1>
+            <svg height="24" width="24" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#A47CF3" />
+                        <stop offset="100%" stop-color="#683FEA" />
+                    </linearGradient>
+                </defs>
+                <path
+                    d="M10,21.236,6.755,14.745,0.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"
+                    fill="url(#gradient)"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="image-upload-area">
+            <center>
+                <h2 style="width: 100%;">A food image to recipe converter for Indian Food</h2>
+            </center>
+            <div class="uploaded-image-display">
+                <img id="up-image" src="data:image/png;base64,{{uploaded_image}}">
+            </div>
+            <div class="image_form">
+                <form method="post" enctype="multipart/form-data"
+                    style="display:flex;flex-direction:column; justify-content:center;align-items:center; gap:1em">
+                    {% csrf_token %}
+                    <div style="display: flex;align-items:center; gap:1em; ">
+                        <label class="upload_button" style="width: fit-content;">
+                            Upload Image
+                            <input type="file" name="image" accept="image/*" id="id_image"
+                                onchange="document.getElementById('up-image').src = window.URL.createObjectURL(this.files[0])">
+                        </label>&nbsp;&nbsp;&nbsp;
+                        <label class="upload_button" style="width: fit-content;">
+                            Take a Picture
+                            <input type="file" name="image" accept="image/*" capture="environment" id="cap_image"
+                                onchange="document.getElementById('up-image').src = window.URL.createObjectURL(this.files[0])">
+                        </label>
+                    </div>
+                    <button class="btn" type="submit">
+                        <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1"
+                            class="sparkle">
+                            <path
+                                d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
+                            </path>
+                        </svg>
+
+                        <span class="text">Generate Recipe</span>
+                    </button>
+                    <!-- <button class="process_button" type="submit" style="width: fit-content;">Generate Recipe</button> -->
+                </form>
+            </div>
+        </div>
+        <div class="results-display-area">
+            {% if recipe_list_to_return %}
+            <center style="margin-top: 5em;">
+                <h3 onclick="display_more()">Here are some possible matches, (might not be 100% accurate)</h3>
+            </center>
+            {% for x in recipe_list_to_return %}
+            <div class="recipe-card">
+                <div class="container-blur">
+                    <div class="blur-top"></div>
+                    <div class="blur-bottom"></div>
+                </div>
+                <div style="display:flex;flex-direction:column; justify-content:center;align-items:center; gap:1em">
+
+                    <div class="first_section">
+                        <h2 class="recipe_name">{{ x.0 }}</h2>
+                        <!-- <div class="recipe-card-image-div">
+                                <img class="recipe-card-image" src="{% static '' %}{{x.1}}" alt="">
+                            </div> -->
+                    </div>
+                    <div style="display: flex;justify-content:center;flex-wrap:wrap; ">
+                        <div class="second_section"
+                            style="flex:1;min-width:300px;display:flex; flex-direction:column; justify-content:center; gap:1em">
+                            <h2 style="padding-inline: 5px;">Ingredients</h2>
+                            <p style="padding-inline: 5px;">{{ x.2 }}<br>Cooking Time:
+                                {{ x.3 }}
+                            </p>
+
+                        </div>
+                        <div class="third_section"
+                            style="flex:1;min-width:300px;flex-direction:column; justify-content:center;align-items:center; gap:1em">
+                            <h2 style="padding-inline: 5px;">Directions</h2>
+                            <p class="ing_dir_display_area">{{ x.4 }}</p>
+                            <p class="ing_dir_display_area">{{ x.5 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <center>
+                <h3 class="upload_button" style="width: fit-content;margin-top:1em;" onclick="display_more()">Can't
+                    find what your looking for?, Click here to see more</h3>
+            </center>
+            {% endif %}
+        </div>
+        <div class="results-display-area" id="extra_results" style="display: none;">
+            {% if similar_recipe_list %}
+            {% for x in similar_recipe_list %}
+            <div class="recipe-card">
+                <div class="container-blur">
+                    <div class="blur-top"></div>
+                    <div class="blur-bottom"></div>
+                </div>
+                <div style="display:flex;flex-direction:column; justify-content:center;align-items:center; gap:1em">
+                    <div class="first_section">
+                        <h2 class="recipe_name">{{ x.0 }}</h2>
+                        <!-- <div class="recipe-card-image-div">
+                                <img class="recipe-card-image" src="{% static '' %}{{x.1}}" alt="">
+                            </div> -->
+
+                    </div>
+                    <div style="display: flex;justify-content:center;flex-wrap:wrap;">
+                        <div class="second_section"
+                            style="flex:1;min-width:300px;display:flex; flex-direction:column; justify-content:center; gap:1em">
+                            <h2 style="padding-inline: 5px;">Ingredients</h2>
+                            <p style="padding-inline: 5px;margin: 0;margin-top: 10px;">{{ x.2 }}<br>Cooking Time:
+                                {{ x.3 }}</p>
+                        </div>
+                        <div class="third_section"
+                            style="flex:1;min-width:300px;flex-direction:column; justify-content:center;align-items:center; gap:1em">
+                            <h2 style="padding-inline: 5px;">Directions</h2>
+                            <p class="ing_dir_display_area">{{ x.4 }}</p>
+                            <p class="ing_dir_display_area">{{ x.5 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <footer class="bottom-section">
+        <div class="container-blur">
+            <div class="blur-top"></div>
+            <div class="blur-bottom"></div>
+        </div>
+        <h5 style="margin-block: 5px;">Website Maintained and Designed By Sheela,Bishnu,Biplab,Projjal</h5>
+
+    </footer>
+    <script>
+        function display_more() {
+            var x = document.getElementById('extra_results');
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        function load_demo_image(image_link) {
+            var frm = document.getElementById('up-image');
+            frm.src = image_link;
+        }
+    </script>
+</body>
+</html>
