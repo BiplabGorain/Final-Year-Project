@@ -1,6 +1,20 @@
-# RecipeLens Project
+# RecipeLens
 
-This repository contains the RecipeLens project for the final year prject. Follow the instructions below to set up and run the project on your local machine.
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face.png" alt="Grinning Face" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="150" height="150" />
+</p>
+
+## Overview
+
+RecipeLens is a project designed to help people by providing recipes along with the required ingredients for various dishes. Users can simply take a picture of the food or upload an image, and RecipeLens will identify the dish and provide the corresponding recipe. This innovative approach leverages image recognition technology to simplify the process of finding recipes and preparing meals.
+
+## Features
+
+- **Image Recognition:** Upload a photo or take a picture of a dish, and RecipeLens will identify it.
+- **Recipe Suggestions:** Get detailed recipes for the identified dishes, including a list of required ingredients.
+- **User-Friendly Interface:** Easy-to-use interface for a seamless user experience.
+  
 
 ## File Structure
 
@@ -119,3 +133,9 @@ After successfully running the command, you will see output similar to the follo
 Starting development server at http://127.0.0.1:8000/
 ```
 Open a web browser and go to the address http://127.0.0.1:8000/ to view the running Django application.
+
+## Contributors
+- [![Biplab Gorain](https://github.com/BiplabGorain.png?size=50)](https://github.com/BiplabGorain) [Biplab Gorain](https://github.com/BiplabGorain)
+- [![Bishnu Sharma](https://github.com/vishnusharma7.png?size=50)](https://github.com/vishnusharma7) [Bishnu Sharma](https://github.com/vishnusharma7)
+- [![Sheela Bhattacharjee](https://github.com/Sheelabhattacharjee.png?size=50)](https://github.com/Sheelabhattacharjee) [Sheela Bhattacharjee](https://github.com/Sheelabhattacharjee)
+- [![Projjal Mitra](https://github.com/PROJJALL.png?size=50)](https://github.com/PROJJALL) [Projjal Mitra](https://github.com/PROJJALL)
